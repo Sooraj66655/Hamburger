@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+      crossorigin="anonymous"
+    />
+    <style>
+      * {
+        padding: 0;
+        border: 0;
+        margin: 0;
+        box-sizing: border-box;
+        list-style-type: none;
+        text-decoration: none;
+        color: rgb(204, 201, 15);
+      }
+
+      body {
+        background-color: rgb(100, 10, 14);
+      }
+      .main-footer {
+        margin: auto;
+        justify-content: center;
+        text-align: center;
+        padding-bottom: 20px;
+      }
+
+      .mainContainer {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        margin: 0 auto;
+        max-width: 1550px;
+        padding-top: 0.5rem;
+        width: 93%;
+      }
+
+      .header a {
+        letter-spacing: 0.18rem;
+        text-transform: uppercase;
+      }
+
+      .hamburgerMenu {
+        position: relative;
+        z-index: 1000;
+        top: 0;
+        left: 0;
+        width: 100%;
+        align-items: baseline;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .hamburgerMenu h1 {
+        transition-delay: 450ms;
+      }
+
+      .toggleBtn {
+        cursor: pointer;
+        width: 55px;
+        z-index: 3;
+      }
+
+      .toggleBtn div {
+        background-color: rgb(204, 201, 15);
+        border-radius: 25px;
+        box-shadow: 0px 3px 13px rgba(0, 0, 0, 0.3);
+        height: 7px;
+        transition-duration: 250ms;
+        transition-timing-function: cubic-bezier(0.13, 0.24, 0.35, 1.64);
+      }
+
+      .toggleBtn .one,
+      .toggleBtn .two {
+        margin-bottom: 7px;
+      }
+
+      .main-nav-list::before,
+      .main-nav-list::after {
+        background-color: rgb(4, 87, 69);
+        content: "";
+        position: absolute;
+        top: 0;
+        height: 100vh;
+        width: 0vw;
+        transition: all 100ms ease-in-out 300ms;
+      }
+
+      .main-nav-list::before {
+        left: 0;
+      }
+
+      .main-nav-list::after {
+        right: 0;
+      }
+
+      .main-nav-list ul {
+        position: absolute;
+        top: -30%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition-duration: 300ms;
+        transition-timing-function: ease-in-out;
+        z-index: 2000;
+      }
+
+      .toggleBtn.active .one {
+        box-shadow: 0px 3px 13px rgba(0, 0, 0, 0.4);
+        transform: translate(0, 14px) rotate(45deg);
+      }
+
+      .toggleBtn.active .two {
+        background-color: transparent;
+        box-shadow: none;
+        transform: translateX(-55px);
+      }
+
+      .toggleBtn.active .three {
+        box-shadow: 0px 3px 13px rgba(0, 0, 0, 0.4);
+        transform: translate(0, -14px) rotate(-45deg);
+      }
+
+      .main-nav-list.active::before,
+      .main-nav-list.active::after {
+        width: 25vw;
+      }
+
+      .main-nav-list.active ul {
+        top: 50%;
+        transform: translate(-50%, -50%);
+        transition-delay: 560ms;
+        transition-duration: 240ms;
+        transition-timing-function: cubic-bezier(0.1, 0.2, 0.3, 1.4);
+      }
+
+      .main-nav-list.active a {
+        transition-delay: 600ms;
+        opacity: 1;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="mainContainer element_active">
+      <header class="header">
+        <nav>
+          <div class="hamburgerMenu element_active">
+            <h1><a>Phpto Gallery</a></h1>
+            <div id="menuHamburger" class="toggleBtn element_active">
+              <div class="one"></div>
+              <div class="two"></div>
+              <div class="three"></div>
+            </div>
+          </div>
+          <div class="main-nav-list element_active">
+            <ul>
+              <h1 class="text-center text-danger capitalize">Login Form</h1>
+              <form>
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label"
+                    >Email address</label
+                  >
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="exampleInputEmail1"
+                    aria-describedby="emailHelp"
+                  />
+                  <div id="emailHelp" class="form-text">
+                    We'll never share your email with anyone else.
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label"
+                    >Password</label
+                  >
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="exampleInputPassword1"
+                  />
+                </div>
+                <div class="mb-3 form-check">
+                  <input
+                    type="checkbox"
+                    class="form-check-input"
+                    id="exampleCheck1"
+                  />
+                  <label class="form-check-label" for="exampleCheck1"
+                    >Check me out</label
+                  >
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+            </ul>
+          </div>
+        </nav>
+      </header>
+      <main id="main">
+        <h1 class="text-center text-capitalize text-danger mt-5">
+          Wecome User
+        </h1>
+        <div class="container mt-5">
+          <div class="row">
+            <div class="col-sm">
+              <div class="card">
+                <img
+                  src="https://picsum.photos/200/300"
+                  class="card-img-top"
+                  alt="..."
+                  height="250"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">
+                    Some quick example text to build on the card title and make
+                    up the bulk of the card's content.
+                  </p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm">
+              <div class="card">
+                <img
+                  src="https://picsum.photos/201/300"
+                  class="card-img-top"
+                  alt="..."
+                  height="250"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">
+                    Some quick example text to build on the card title and make
+                    up the bulk of the card's content.
+                  </p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm">
+              <div class="card">
+                <img
+                  src="https://picsum.photos/202/300"
+                  class="card-img-top"
+                  alt="..."
+                  height="250"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">
+                    Some quick example text to build on the card title and make
+                    up the bulk of the card's content.
+                  </p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <br />
+      <hr />
+
+      <footer class="main-footer element_active" id="footer">
+        <span class="copyright">&copy;2021 Suraj Corp. pvt. Ltd</span>
+      </footer>
+    </div>
+
+    <script>
+      var menu = document.getElementById("menuHamburger");
+      var Elements = document.querySelectorAll(".element_active");
+      var toggled = menu.addEventListener("click", function () {
+        var y = document.getElementById("footer");
+        if (y.style.display === "none") {
+          y.style.display = "block";
+        } else {
+          y.style.display = "none";
+        }
+        var x = document.getElementById("main");
+        if (x.style.display === "none") {
+          x.style.display = "block";
+        } else {
+          x.style.display = "none";
+        }
+        for (var activated = 0; activated < Elements.length; activated++) {
+          Elements[activated].classList.toggle("active");
+        }
+      });
+    </script>
+  </body>
+</html>
